@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eloise Robert - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="phone">
+        <header class="fixed-ui">
+            <div class="status-bar">
+                <span id="clock">00:00</span>
+                <div class="status-icons">
+                    <span>📶</span>
+                    <span>100% 🔋</span>
+                </div>
+            </div>
+            <form role="search" class="terminal-bar" tabindex="0">
+                <img class="logo" src="img/terminal.webp" alt="terminal">
+                <input type="text" placeholder="Rechercher..." readonly>
+                <ul class="suggestions">
+                    <li><button type="button">Profil</button></li>
+                    <li><button type="button">Contact</button></li>
+                    <li><button type="button">Autres</button></li>
+                </ul>
+            </form>
+        </header>
+
+        <article class="screen">
+            <div class="pages-container">
+                <section id="home" class="page">
+                    <nav>
+                        <ul>
+                            <li><a href="profil.html"><img class="logo" src="img/profil.webp" alt="Profil"><span>Mon profil</span></a></li>
+                            <li><a href="figma.html"><img class="logo" src="img/figma.webp" alt="Figma"><span>Figma</span></a></li>
+                            <li><a href="vscode.html"><img class="logo" src="img/vscode.webp" alt="VS Code"><span>VS Code</span></a></li>
+                            <li><a href="wordpress.html"><img class="logo" src="img/wordpress.webp" alt="WordPress"><span>WordPress</span></a></li>
+                            <li><a href="SEO.html"><img class="logo" src="img/SEO.webp" alt="SEO"><span>SEO</span></a></li>
+                            <li><a href="github.html"><img class="logo" src="img/github.webp" alt="Github"><span>Github</span></a></li>
+                            <li><a href="certificats.html"><img class="logo" src="img/certificats.webp" alt="Certificats"><span>Certifications</span></a></li>
+                            <li><a href="veille.html"><img class="logo" src="img/veille.webp" alt="Veille"><span>Veilles Techno</span></a></li>
+                            <li><a href="playlist.html"><img class="logo" src="img/playlist.webp" alt="Playlist"><span>Playlist</span></a></li>
+                        </ul>
+                    </nav>
+                </section>
+                <section id="page2" class="page">
+                    <nav>
+                        <ul>
+                            <li><a href="autres.html"><img class="logo" src="img/autres.webp" alt="Autres"><span>Autres</span></a></li>
+                            <li><a href="contact.html"><img class="logo" src="img/contact.webp" alt="Contact"><span>Contact</span></a></li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+        </article>
+
+        <div class="page-indicator">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+        </div>
+
+        <footer class="phone-footer">
+            <button type="button" class="back-button">
+                <img src="img/retour.webp" alt="Retour">
+            </button>
+            <div class="home-bar"></div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

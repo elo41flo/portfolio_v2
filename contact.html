@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Eloise Robert</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="phone profile-page">
+        <header class="fixed-ui">
+            <div class="status-bar dark-text">
+                <span id="clock">00:00</span>
+                <div class="status-icons">
+                    <span>📶</span>
+                    <span>100% 🔋</span>
+                </div>
+            </div>
+        </header>
+
+        <article class="content-scroll">
+            <h1 class="page-title">Me Contacter</h1>
+
+            <section class="project-card">
+                <form class="contact-form" action="https://formspree.io/f/mbdrppdw" method="POST">
+                    <div class="input-group">
+                        <label for="name">Nom</label>
+                        <input type="text" name="nom" id="name" placeholder="Ton nom">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Ton adresse email">
+                    </div>
+                    <div class="input-group">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" rows="4" placeholder="Bonjour Éloïse..."></textarea>
+                    </div>
+                    <button type="submit" class="send-btn">Envoyer 📨</button>
+                </form>
+            </section>
+
+            <div class="contact-links">
+                <a href="mailto:elo.robert41@gmail.com" class="contact-pill">
+                    <span>📧</span> elo.robert41@gmail.com
+                </a>
+                <a href="www.linkedin.com/in/eloise-robert-0b36902a6" target="_blank" class="contact-pill">
+                    <span>🔗</span> LinkedIn
+                </a>
+                <a href="https://github.com/elo41flo" target="_blank" class="contact-pill">
+                    <span>💻</span> GitHub
+                </a>
+            </div>
+        </article>
+
+        <footer class="phone-footer">
+            <button type="button" class="back-button" onclick="window.history.back()">
+                <img src="img/retour.webp" alt="Retour">
+            </button>
+            <a href="index.html" class="home-button">
+                <div class="home-bar"></div>
+            </a>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
