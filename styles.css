@@ -15,12 +15,13 @@ body {
 }
 
 /* --- 2. LE CHÂSSIS DU TÉLÉPHONE --- */
+/* --- LE CHÂSSIS DU TÉLÉPHONE (Standard) --- */
 .phone {
-    width: 300px;
-    aspect-ratio: 9 / 19;
+    width: 300px; /* On remet la largeur d'origine */
+    height: 600px; /* Hauteur fixe pour l'illusion mobile */
     border: 12px solid #222;
     border-radius: 40px;
-    background-color: aliceblue; /* Fond par défaut pour les pages sans photo */
+    background-color: aliceblue;
     position: relative;
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
@@ -173,11 +174,28 @@ body {
     display: flex;
     justify-content: center;
     gap: 8px;
-    pointer-events: none;
+    /* Supprime pointer-events: none; pour autoriser le clic */
+    z-index: 110; 
 }
 
-.dot { width: 6px; height: 6px; background: rgba(255, 255, 255, 0.4); border-radius: 50%; }
-.dot.active { background: white; }
+.dot { 
+    width: 10px; /* Un peu plus grand pour faciliter le clic */
+    height: 10px; 
+    background: rgba(255, 255, 255, 0.4); 
+    border-radius: 50%; 
+    border: none; /* Reset style bouton */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.dot.active { 
+    background: white; 
+}
 
 .phone-footer {
     position: absolute;
@@ -218,16 +236,16 @@ body {
 .home-bar {
     width: 80px;
     height: 5px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(238, 214, 81, 0.5);
     border-radius: 10px;
     transition: all 0.3s ease;
     pointer-events: none; /* Permet au clic de traverser la div pour atteindre le lien <a> */
 }
 
 .home-button:hover .home-bar {
-    background-color: #ffffff !important;
+    background-color: #e4c61f !important;
     width: 100px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(251, 255, 0, 0.8);
 }
 
 /* --- CONFIGURATION PAGE PROFIL --- */
@@ -512,10 +530,11 @@ iframe {
 }
 
 .gh-avatar {
-    width: 100px;
+    width: 70px;
     height: 100px;
-    border-radius: 50%;
-    border: 1px solid #d0d7de;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    border: 3px solid aliceblue;
 }
 
 .gh-username { color: #57606a; font-size: 14px; margin-bottom: 10px; }
@@ -796,3 +815,77 @@ iframe {
 }
 
 .contact-pill:hover { background: #f0f0f0; }
+
+/* Par défaut (Mobile) : Le contenu reste dans le châssis */
+.profile-page {
+    width: 100%;
+}
+
+/* --- ADAPTATION DESKTOP (Pages de contenu) --- */
+@media (min-width: 1024px) {
+    
+    /* Bloque le scroll global pour une sensation d'application fixe */
+    html, body {
+        overflow: hidden !important;
+        height: 100% !important;
+    }
+
+    /* ÉLARGISSEMENT ET HAUTEUR : On augmente la hauteur à 92vh */
+    main.phone.profile-page {
+        width: 85vw !important;
+        max-width: 1200px !important;
+        height: 92vh !important; /* Plus de hauteur pour mieux exploiter l'écran */
+        aspect-ratio: auto !important;
+        margin: 2vh auto !important; /* Marges réduites en haut/bas */
+        display: flex !important;
+        flex-direction: column !important;
+        border: 10px solid #222 !important;
+        border-radius: 30px !important;
+        overflow: hidden !important;
+    }
+
+    /* Le téléphone de la Home Page reste inchangé */
+    main.phone:not(.profile-page) {
+        width: 300px !important;
+        height: 600px !important;
+        margin: auto !important;
+    }
+
+    /* Organisation interne en 2 colonnes */
+    .profile-page .content-scroll {
+        flex: 1 !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; 
+        gap: 30px !important;
+        padding: 40px !important;
+        overflow-y: auto !important; 
+        overflow-x: hidden !important;
+        align-content: start !important;
+    }
+
+    /* Éléments sur toute la largeur */
+    .profile-page .page-title, 
+    .profile-page .profile-card, 
+    .profile-page .github-header,
+    .profile-page .playlist-header,
+    .profile-page .section-subtitle {
+        grid-column: span 2 !important;
+    }
+
+    /* Footer toujours bien calé en bas */
+    .profile-page .phone-footer {
+        position: relative !important;
+        height: 65px !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        border-top: 1px solid #ddd !important;
+        flex-shrink: 0 !important;
+        z-index: 100 !important;
+    }
+
+    /* Barre home plus imposante pour le confort PC */
+    .profile-page .home-bar {
+        width: 180px !important;
+        height: 8px !important;
+        background-color: #333 !important;
+    }
+}

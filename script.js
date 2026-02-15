@@ -45,6 +45,19 @@ if (screen && dots.length > 0) {
     }, { passive: true }); // Optimise les performances du scroll
 }
 
+/* --- NAVIGATION PAR POINTS --- */
+document.querySelectorAll('.dot').forEach(dot => {
+    dot.addEventListener('click', function() {
+        const pageIndex = parseInt(this.getAttribute('data-page'));
+        const targetX = pageIndex * screen.clientWidth;
+        
+        screen.scrollTo({
+            left: targetX,
+            behavior: 'smooth'
+        });
+    });
+});
+
 /* --- 4. NAVIGATION (HOME & BACK) --- */
 document.querySelector('.back-button')?.addEventListener('click', () => window.history.back());
 
