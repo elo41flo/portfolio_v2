@@ -451,6 +451,7 @@ iframe {
 .js { background: #F7DF1E; color: black; }
 .node_js {background-color: #5fa730; }
 .react {background-color: #08d9ff;}
+.json {background-color: orange;}
 
 /* Aperçu et Boutons */
 .web-preview {
